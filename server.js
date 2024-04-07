@@ -8,9 +8,6 @@ const port = 2020
 app.use(cors())
 app.use(express.json())
 
-app.listen(port, function() {
-    console.log('Listening...');
-})
 
 app.post('/', (request, response) =>{
     response.json({found: false})
@@ -24,4 +21,7 @@ app.post('/coords', (request, response) => {
         socket.emit('coords', body)
         response.json(body)
     })
+})
+app.listen(port, function() {
+    console.log('Listening...');
 })
